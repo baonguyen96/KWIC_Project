@@ -22,6 +22,8 @@ Project is organized into:
     3. UML:
         Using StarUML to construct UML diagrams
         Contains Class Diagram and Activity Diagram
+    4. backup:
+        Latest working version to rollback if needed
 
 ------------------------------------------------------------
 
