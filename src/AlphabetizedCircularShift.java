@@ -1,13 +1,14 @@
 public class AlphabetizedCircularShift {
 
-    public static String[] generateAlphabetizedCircularShift(String msg) {
-        String[] acs = null;
+    static String[] acsMessages;
 
-        return acs;
+    public static String[] generateAlphabetizedCircularShift(String[] cs) {
+
+        return acsMessages;
     }
 
 
-    private static void print(String[] acs) {
+    private static void print() {
 
     }
 }

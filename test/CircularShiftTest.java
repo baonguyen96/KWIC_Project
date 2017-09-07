@@ -46,17 +46,10 @@ class CircularShiftTest extends AbstractCircularShiftTest {
     @Test
     private void testGenerateCircularShiftPassMsg3() {
         String[] actual = CircularShift.generateCircularShift(msg3);
-        String[] expected = msg3CsPass;
+        String[] expected = null;
 
         assertArrayEquals(actual, expected);
     }
 
 
-    @Test
-    private void testGenerateCircularShiftFailMsg3() {
-        String[] actual = CircularShift.generateCircularShift(msg3);
-        String[] expectedFail = msg3CsPass;
-
-        assertArrayEquals(actual, expectedFail);
-    }
 }
