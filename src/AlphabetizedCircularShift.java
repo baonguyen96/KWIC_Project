@@ -1,6 +1,6 @@
 public class AlphabetizedCircularShift {
 
-    static String[] acsMessages;
+    private static String[] acsMessages = null;
 
     public static String[] generateAlphabetizedCircularShift(String[] cs) {
 
