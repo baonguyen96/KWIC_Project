@@ -11,4 +11,9 @@ public class AlphabetizedCircularShift {
     private static void print() {
 
     }
+
+
+    public static void reset() {
+        // clear out acsMessages (now it does not contain anything)
+    }
 }

@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -6,6 +7,11 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class AlphabetizedCircularShiftTest extends AbstractCircularShiftTest {
+
+    @BeforeEach
+    public void resetACS() {
+        AlphabetizedCircularShift.reset();
+    }
 
     @Test
     public void testGenerateAlphabetizedCircularShiftPassSingleLineMultiWords() {
@@ -20,7 +26,7 @@ class AlphabetizedCircularShiftTest extends AbstractCircularShiftTest {
     @Test
     public void testGenerateAlphabetizedCircularShiftFailSingleLineMultiWords() {
         String[] actual = AlphabetizedCircularShift.generateAlphabetizedCircularShift(multiWordsLineCs);
-        String[] expected = multiWordsLineCs;
+        String[] expected = multiWordsLineCs;   // unsorted
 
         assertFalse(Arrays.equals(expected, actual));
     }
