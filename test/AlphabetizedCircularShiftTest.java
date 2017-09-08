@@ -9,8 +9,8 @@ class AlphabetizedCircularShiftTest extends AbstractCircularShiftTest {
 
     @Test
     public void testGenerateAlphabetizedCircularShiftPassSingleLineMultiWords() {
-        String[] actual = AlphabetizedCircularShift.generateAlphabetizedCircularShift(multiWordsLine1Cs);
-        String[] expected = multiWordsLine1Cs;
+        String[] actual = AlphabetizedCircularShift.generateAlphabetizedCircularShift(multiWordsLineCs);
+        String[] expected = multiWordsLineCs;
         Arrays.sort(expected);
 
         assertArrayEquals(expected, actual);
@@ -19,33 +19,55 @@ class AlphabetizedCircularShiftTest extends AbstractCircularShiftTest {
 
     @Test
     public void testGenerateAlphabetizedCircularShiftFailSingleLineMultiWords() {
-        String[] actual = AlphabetizedCircularShift.generateAlphabetizedCircularShift(multiWordsLine1Cs);
-        String[] expected = multiWordsLine1Cs;
+        String[] actual = AlphabetizedCircularShift.generateAlphabetizedCircularShift(multiWordsLineCs);
+        String[] expected = multiWordsLineCs;
 
         assertFalse(Arrays.equals(expected, actual));
     }
 
 
     @Test
+    public void testGenerateAlphabetizedCircularShiftPassSingleLineSingleWords() {
+        String[] actual = AlphabetizedCircularShift.generateAlphabetizedCircularShift(singleWordLineCs);
+        String[] expected = singleWordLineCs;
+
+        assertArrayEquals(expected, actual);
+    }
+
+
+    @Test
     public void testGenerateAlphabetizedCircularShiftPassMultiLines() {
-        int length = multiWordsLine1Cs.length + singleWordLineCs.length;
+        int length = multiWordsLineCs.length + singleWordLineCs.length;
         String[] actual = new String[length];
         String[] expected = new String[length];
 
         // first line
-        System.arraycopy(AlphabetizedCircularShift.generateAlphabetizedCircularShift(multiWordsLine1Cs),
-                0, actual, 0, multiWordsLine1Cs.length);
-        System.arraycopy(multiWordsLine1Cs, 0, expected, 0, multiWordsLine1Cs.length);
+        System.arraycopy(AlphabetizedCircularShift.generateAlphabetizedCircularShift(multiWordsLineCs),
+                0, actual, 0, multiWordsLineCs.length);
+        System.arraycopy(multiWordsLineCs, 0, expected, 0, multiWordsLineCs.length);
         Arrays.sort(expected);
         assertArrayEquals(expected, actual);
 
         // second line
         System.arraycopy(AlphabetizedCircularShift.generateAlphabetizedCircularShift(singleWordLineCs),
-                0, actual, multiWordsLine1Cs.length, singleWordLineCs.length);
-        System.arraycopy(singleWordLineCs, 0, expected, multiWordsLine1Cs.length,
+                0, actual, multiWordsLineCs.length, singleWordLineCs.length);
+        System.arraycopy(singleWordLineCs, 0, expected, multiWordsLineCs.length,
                 singleWordLineCs.length);
         Arrays.sort(expected);
         assertArrayEquals(expected, actual);
+    }
+
+
+    @Test
+    public void testGenerateAlphabetizedCircularShiftPassEmptyLine() {
+        // single-word line
+        String[] actual = AlphabetizedCircularShift.generateAlphabetizedCircularShift(singleWordLineCs);
+        String[] expected = singleWordLineCs;
+        assertArrayEquals(expected, actual);
+
+        // append empty line
+        actual = AlphabetizedCircularShift.generateAlphabetizedCircularShift(emptyLineCs);
+        assertArrayEquals(expected, actual);    // ACS should not change
     }
 
 }

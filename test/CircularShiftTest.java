@@ -5,9 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 class CircularShiftTest extends AbstractCircularShiftTest {
 
     @Test
-    public void testGenerateCircularShiftPassMultiWordsLine1() {
-        String[] actual = CircularShift.generateCircularShift(multiWordsLine1);
-        String[] expected = multiWordsLine1Cs;
+    public void testGenerateCircularShiftPassMultiWordsLine() {
+        String[] actual = CircularShift.generateCircularShift(multiWordsLine);
+        String[] expected = multiWordsLineCs;
 
         assertArrayEquals(expected, actual);
     }

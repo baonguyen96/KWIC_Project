@@ -1,21 +1,19 @@
-@SuppressWarnings({"UnusedDeclaration"})
 abstract class AbstractCircularShiftTest {
 
     // test case 1
-    final String multiWordsLine1 = "Hello from Software Architecture course. ";
-    final String[] multiWordsLine1Cs = {
-            "Hello from Software Architecture course.",
-            "from Software Architecture course. Hello",
-            "Software Architecture course.Hello from",
-            "Architecture course. Hello from Software",
-            "course. Hello from Software Architecture",
-            "Hello from Software Architecture course."
+    final String multiWordsLine = "HELLO FROM SOFTWARE ARCHITECTURE COURSE.";
+    final String[] multiWordsLineCs = {
+            "HELLO FROM SOFTWARE ARCHITECTURE COURSE.",
+            "FROM SOFTWARE ARCHITECTURE COURSE. HELLO",
+            "SOFTWARE ARCHITECTURE COURSE. HELLO FROM",
+            "ARCHITECTURE COURSE. HELLO FROM SOFTWARE",
+            "COURSE. HELLO FROM SOFTWARE ARCHITECTURE"
     };
 
     // test case 2
-    final String singleWordLine = "Hi";
+    final String singleWordLine = "hi";
     final String[] singleWordLineCs = {
-            "Hi"
+            "HI"
     };
 
     // test case 3
