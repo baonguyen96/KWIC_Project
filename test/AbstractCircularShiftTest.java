@@ -1,15 +1,9 @@
+@SuppressWarnings({"UnusedDeclaration"})
 abstract class AbstractCircularShiftTest {
 
     // test case 1
-    final String msg1 = "Hello from Software Architecture course. ";
-    final String[] msg1CsFail = {
-            "Hello from Software Architecture course. ",
-            "from Software Architecture course. Hello ",
-            "Software Architecture course.Hello from ",
-            "Architecture course. Hello from Software ",
-            "course. Hello from Software Architecture "
-    };
-    final String[] msg1CsPass = {
+    final String multiWordsLine1 = "Hello from Software Architecture course. ";
+    final String[] multiWordsLine1Cs = {
             "Hello from Software Architecture course.",
             "from Software Architecture course. Hello",
             "Software Architecture course.Hello from",
@@ -19,16 +13,12 @@ abstract class AbstractCircularShiftTest {
     };
 
     // test case 2
-    final String msg2 = "Hi";
-    final String[] msg2CsPass = {
-            "Hi"
-    };
-    final String[] msg2CsFail = {
-            "Hi",
+    final String singleWordLine = "Hi";
+    final String[] singleWordLineCs = {
             "Hi"
     };
 
     // test case 3
-    final String msg3 = "";
-
+    final String emptyLine = "";
+    final String[] emptyLineCs = null;
 }

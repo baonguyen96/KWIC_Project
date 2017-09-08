@@ -1,54 +1,33 @@
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class CircularShiftTest extends AbstractCircularShiftTest {
 
     @Test
-    private void testGenerateCircularShiftPassMsg1() {
-        String[] actual = CircularShift.generateCircularShift(msg1);
-        String[] expected = msg1CsPass;
+    public void testGenerateCircularShiftPassMultiWordsLine1() {
+        String[] actual = CircularShift.generateCircularShift(multiWordsLine1);
+        String[] expected = multiWordsLine1Cs;
 
-        assertArrayEquals(actual, expected);
+        assertArrayEquals(expected, actual);
     }
 
 
     @Test
-    private void testGenerateCircularShiftFailMsg1() {
-        String[] actual = CircularShift.generateCircularShift(msg1);
-        String[] expected = msg1CsFail;
+    public void testGenerateCircularShiftPassSingleWordLine() {
+        String[] actual = CircularShift.generateCircularShift(singleWordLine);
+        String[] expected = singleWordLineCs;
 
-        assertArrayEquals(actual, expected);    // can remove
-        assertFalse(Arrays.equals(actual, msg1CsPass));
+        assertArrayEquals(expected, actual);
     }
 
 
     @Test
-    private void testGenerateCircularShiftPassMsg2() {
-        String[] actual = CircularShift.generateCircularShift(msg2);
-        String[] expected = msg2CsPass;
+    public void testGenerateCircularShiftPassEmptyLine() {
+        String[] actual = CircularShift.generateCircularShift(emptyLine);
+        String[] expected = emptyLineCs;
 
-        assertArrayEquals(actual, expected);
-    }
-
-
-    @Test
-    private void testGenerateCircularShiftFailMsg2() {
-        String[] actual = CircularShift.generateCircularShift(msg2);
-        String[] expected = msg2CsFail;
-
-        assertArrayEquals(actual, expected);
-    }
-
-    @Test
-    private void testGenerateCircularShiftPassMsg3() {
-        String[] actual = CircularShift.generateCircularShift(msg3);
-        String[] expected = null;
-
-        assertArrayEquals(actual, expected);
+        assertArrayEquals(expected, actual);
     }
 
 
