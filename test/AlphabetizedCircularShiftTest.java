@@ -9,12 +9,12 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 class AlphabetizedCircularShiftTest extends AbstractCircularShiftTest {
 
     @BeforeEach
-    public void resetACS() {
+    void resetACS() {
         AlphabetizedCircularShift.reset();
     }
 
     @Test
-    public void testGenerateAlphabetizedCircularShiftPassSingleLineMultiWords() {
+    void testGenerateAlphabetizedCircularShiftPassSingleLineMultiWords() {
         String[] actual = AlphabetizedCircularShift.generateAlphabetizedCircularShift(multiWordsLineCs);
         String[] expected = multiWordsLineCs;
         Arrays.sort(expected);
@@ -24,7 +24,7 @@ class AlphabetizedCircularShiftTest extends AbstractCircularShiftTest {
 
 
     @Test
-    public void testGenerateAlphabetizedCircularShiftFailSingleLineMultiWords() {
+    void testGenerateAlphabetizedCircularShiftFailSingleLineMultiWords() {
         String[] actual = AlphabetizedCircularShift.generateAlphabetizedCircularShift(multiWordsLineCs);
         String[] expected = multiWordsLineCs;   // unsorted
 
@@ -33,7 +33,7 @@ class AlphabetizedCircularShiftTest extends AbstractCircularShiftTest {
 
 
     @Test
-    public void testGenerateAlphabetizedCircularShiftPassSingleLineSingleWords() {
+    void testGenerateAlphabetizedCircularShiftPassSingleLineSingleWords() {
         String[] actual = AlphabetizedCircularShift.generateAlphabetizedCircularShift(singleWordLineCs);
         String[] expected = singleWordLineCs;
 
@@ -42,7 +42,7 @@ class AlphabetizedCircularShiftTest extends AbstractCircularShiftTest {
 
 
     @Test
-    public void testGenerateAlphabetizedCircularShiftPassMultiLines() {
+    void testGenerateAlphabetizedCircularShiftPassMultiLines() {
         int length = multiWordsLineCs.length + singleWordLineCs.length;
         String[] actual = new String[length];
         String[] expected = new String[length];
@@ -65,7 +65,7 @@ class AlphabetizedCircularShiftTest extends AbstractCircularShiftTest {
 
 
     @Test
-    public void testGenerateAlphabetizedCircularShiftPassEmptyLine() {
+    void testGenerateAlphabetizedCircularShiftPassEmptyLine() {
         // single-word line
         String[] actual = AlphabetizedCircularShift.generateAlphabetizedCircularShift(singleWordLineCs);
         String[] expected = singleWordLineCs;

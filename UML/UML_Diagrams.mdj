@@ -635,7 +635,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": true,
-											"text": "+reset(circularShifts: String[*]): String[*]",
+											"text": "+reset(): void",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -2581,7 +2581,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+testGenerateCircularShiftPassMultiWordsLine(): void",
+											"text": "~testGenerateCircularShiftPassMultiWordsLine(): void",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -2610,7 +2610,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+testGenerateCircularShiftPassSingleWordLine(): void",
+											"text": "~testGenerateCircularShiftPassSingleWordLine(): void",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -2639,7 +2639,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+testGenerateCircularShiftPassEmptyLine(): void",
+											"text": "~testGenerateCircularShiftPassEmptyLine(): void",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -2958,7 +2958,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+testGenerateAlphabetizedCircularShiftPassSingleLineMultiWords(): void",
+											"text": "~testGenerateAlphabetizedCircularShiftPassSingleLineMultiWords(): void",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -2987,7 +2987,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+testGenerateAlphabetizedCircularShiftFailSingleLineMultiWords(): void",
+											"text": "~testGenerateAlphabetizedCircularShiftFailSingleLineMultiWords(): void",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -3016,7 +3016,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+testGenerateAlphabetizedCircularShiftPassSingleLineSingleWords(): void",
+											"text": "~testGenerateAlphabetizedCircularShiftPassSingleLineSingleWords(): void",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -3045,7 +3045,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+testGenerateAlphabetizedCircularShiftPassMultiLines(): void",
+											"text": "~testGenerateAlphabetizedCircularShiftPassMultiLines(): void",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -3074,7 +3074,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+testGenerateAlphabetizedCircularShiftPassEmptyLine(): void",
+											"text": "~testGenerateAlphabetizedCircularShiftPassEmptyLine(): void",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -3103,7 +3103,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+resetACS(): void",
+											"text": "~resetACS(): void",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -3734,23 +3734,6 @@
 							"parameters": [
 								{
 									"_type": "UMLParameter",
-									"_id": "AAAAAAFeYvbCXsLeUVU=",
-									"_parent": {
-										"$ref": "AAAAAAFeYvbCXsLdD3w="
-									},
-									"name": "circularShifts",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": "String",
-									"multiplicity": "*",
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "in"
-								},
-								{
-									"_type": "UMLParameter",
 									"_id": "AAAAAAFeYvbCXsLfaIY=",
 									"_parent": {
 										"$ref": "AAAAAAFeYvbCXsLdD3w="
@@ -3758,8 +3741,7 @@
 									"visibility": "public",
 									"isStatic": false,
 									"isLeaf": false,
-									"type": "String",
-									"multiplicity": "*",
+									"type": "void",
 									"isReadOnly": false,
 									"isOrdered": false,
 									"isUnique": false,
@@ -4106,7 +4088,7 @@
 								"$ref": "AAAAAAFeWm5YcDi9pZs="
 							},
 							"name": "testGenerateCircularShiftPassMultiWordsLine",
-							"visibility": "public",
+							"visibility": "package",
 							"isStatic": false,
 							"isLeaf": false,
 							"parameters": [
@@ -4137,7 +4119,7 @@
 								"$ref": "AAAAAAFeWm5YcDi9pZs="
 							},
 							"name": "testGenerateCircularShiftPassSingleWordLine",
-							"visibility": "public",
+							"visibility": "package",
 							"isStatic": false,
 							"isLeaf": false,
 							"parameters": [
@@ -4168,7 +4150,7 @@
 								"$ref": "AAAAAAFeWm5YcDi9pZs="
 							},
 							"name": "testGenerateCircularShiftPassEmptyLine",
-							"visibility": "public",
+							"visibility": "package",
 							"isStatic": false,
 							"isLeaf": false,
 							"parameters": [
@@ -4259,7 +4241,7 @@
 								"$ref": "AAAAAAFeWm+BHzoJST0="
 							},
 							"name": "testGenerateAlphabetizedCircularShiftPassSingleLineMultiWords",
-							"visibility": "public",
+							"visibility": "package",
 							"isStatic": false,
 							"isLeaf": false,
 							"parameters": [
@@ -4290,7 +4272,7 @@
 								"$ref": "AAAAAAFeWm+BHzoJST0="
 							},
 							"name": "testGenerateAlphabetizedCircularShiftFailSingleLineMultiWords",
-							"visibility": "public",
+							"visibility": "package",
 							"isStatic": false,
 							"isLeaf": false,
 							"parameters": [
@@ -4321,7 +4303,7 @@
 								"$ref": "AAAAAAFeWm+BHzoJST0="
 							},
 							"name": "testGenerateAlphabetizedCircularShiftPassSingleLineSingleWords",
-							"visibility": "public",
+							"visibility": "package",
 							"isStatic": false,
 							"isLeaf": false,
 							"parameters": [
@@ -4352,7 +4334,7 @@
 								"$ref": "AAAAAAFeWm+BHzoJST0="
 							},
 							"name": "testGenerateAlphabetizedCircularShiftPassMultiLines",
-							"visibility": "public",
+							"visibility": "package",
 							"isStatic": false,
 							"isLeaf": false,
 							"parameters": [
@@ -4383,7 +4365,7 @@
 								"$ref": "AAAAAAFeWm+BHzoJST0="
 							},
 							"name": "testGenerateAlphabetizedCircularShiftPassEmptyLine",
-							"visibility": "public",
+							"visibility": "package",
 							"isStatic": false,
 							"isLeaf": false,
 							"parameters": [
@@ -4414,7 +4396,7 @@
 								"$ref": "AAAAAAFeWm+BHzoJST0="
 							},
 							"name": "resetACS",
-							"visibility": "public",
+							"visibility": "package",
 							"isStatic": false,
 							"isLeaf": false,
 							"parameters": [

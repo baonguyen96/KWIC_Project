@@ -1,8 +1,8 @@
-public abstract class AbstractCircularShiftTest {
+abstract class AbstractCircularShiftTest {
 
     // test case 1
-    protected final String multiWordsLine = "HELLO FROM SOFTWARE ARCHITECTURE COURSE.";
-    protected final String[] multiWordsLineCs = {
+    final String multiWordsLine = "HELLO FROM SOFTWARE ARCHITECTURE COURSE.";
+    final String[] multiWordsLineCs = {
             "HELLO FROM SOFTWARE ARCHITECTURE COURSE.",
             "FROM SOFTWARE ARCHITECTURE COURSE. HELLO",
             "SOFTWARE ARCHITECTURE COURSE. HELLO FROM",
@@ -11,12 +11,12 @@ public abstract class AbstractCircularShiftTest {
     };
 
     // test case 2
-    protected final String singleWordLine = "hi";
-    protected final String[] singleWordLineCs = {
+    final String singleWordLine = "hi";
+    final String[] singleWordLineCs = {
             "HI"
     };
 
     // test case 3
-    protected final String emptyLine = "";
-    protected final String[] emptyLineCs = null;
+    final String emptyLine = "";
+    final String[] emptyLineCs = null;
 }

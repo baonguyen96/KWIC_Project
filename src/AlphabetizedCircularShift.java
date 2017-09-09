@@ -1,4 +1,4 @@
-public class AlphabetizedCircularShift {
+class AlphabetizedCircularShift {
 
     private static String[] acsMessages = null;
 
