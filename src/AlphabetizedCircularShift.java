@@ -5,17 +5,18 @@ public class AlphabetizedCircularShift implements IAlphabetizedCircularShift {
 
     private static List<String> lines;
 
-    public AlphabetizedCircularShift() {
-    }
-
     public AlphabetizedCircularShift(List<String> lines) {
-        this.lines = generateAlphabetizedCircularShift(lines);
+        AlphabetizedCircularShift.lines = generateAlphabetizedCircularShift(lines);
     }
 
 
-    public static List<String> generateAlphabetizedCircularShift(List<String> lines){
+    private static List<String> generateAlphabetizedCircularShift(List<String> lines) {
         Collections.sort(lines);
         return lines;
+    }
+
+    public static void clear() {
+        lines = null;
     }
 
     @Override
@@ -25,12 +26,8 @@ public class AlphabetizedCircularShift implements IAlphabetizedCircularShift {
 
     @Override
     public void print() {
-        for (String line: lines){
+        for (String line : lines) {
             System.out.println(line);
         }
-    }
-
-    public static void reset() {
-        // clear out acsMessages (now it does not contain anything)
     }
 }

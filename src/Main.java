@@ -14,7 +14,7 @@ public class Main {
         System.out.println("circular shift");
         shifter.print();
 
-        shifter=new CircularShift("CHOOSE A NUMBER");
+        shifter = new CircularShift("CHOOSE A NUMBER");
         shiftedLines.addAll(shifter.getShiftedLines());
 
         System.out.println("circular shift");

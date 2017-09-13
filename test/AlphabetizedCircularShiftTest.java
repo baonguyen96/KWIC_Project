@@ -1,84 +1,93 @@
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertThat;
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class AlphabetizedCircularShiftTest extends AbstractCircularShiftTest {
 
-    @BeforeEach
-    void resetACS() {
-        AlphabetizedCircularShift.reset();
+    private AlphabetizedCircularShift acs;
+
+    @AfterEach
+    void teardown() {
+        AlphabetizedCircularShift.clear();
+        acs = null;
     }
+
 
     @Test
     void testGenerateAlphabetizedCircularShiftPassSingleLineMultiWords() {
-        List<String> actual = AlphabetizedCircularShift.generateAlphabetizedCircularShift(multiWordsLineCs);
+        acs = new AlphabetizedCircularShift(multiWordsLineCs);
+        List<String> actual = acs.getLines();
         List<String> expected = multiWordsLineCs;
         Collections.sort(expected);
 
-        assertThat(actual,is(expected));
+        assertThat(actual, is(expected));
     }
 
 
- /**   @Test
+    @Test
     void testGenerateAlphabetizedCircularShiftFailSingleLineMultiWords() {
-        List<String> actual = AlphabetizedCircularShift.generateAlphabetizedCircularShift(multiWordsLineCs);
-        List<String> expected = multiWordsLineCs;   // unsorted
+        List<String> expected = new ArrayList<>(multiWordsLineCs);   // unsorted
+        acs = new AlphabetizedCircularShift(multiWordsLineCs);
+        List<String> actual = acs.getLines();
 
-        assertFalse(Arrays.equals(expected, actual));
-    }**/
+        for (String s : expected) {
+            System.out.println(s);
+        }
+
+        assertThat(actual, is(not(expected)));
+    }
 
 
     @Test
     void testGenerateAlphabetizedCircularShiftPassSingleLineSingleWords() {
-        List<String> actual= AlphabetizedCircularShift.generateAlphabetizedCircularShift(singleWordLineCs);
-        List<String> expected= singleWordLineCs;
+        acs = new AlphabetizedCircularShift(singleWordLineCs);
+        List<String> actual = acs.getLines();
+        List<String> expected = singleWordLineCs;
 
-        assertThat(actual,is(expected));
+        assertThat(actual, is(expected));
     }
 
 
-/**    @Test
+    @Test
     void testGenerateAlphabetizedCircularShiftPassMultiLines() {
-        int length = multiWordsLineCs.size() + singleWordLineCs.size();
-        List<String> actual = new ArrayList<>(length);
-        List<String> expected = new ArrayList<>(length);
+        List<String> actual = new ArrayList<>();
+        List<String> expected = new ArrayList<>();
 
         // first line
-        System.arraycopy(AlphabetizedCircularShift.generateAlphabetizedCircularShift(multiWordsLineCs),
-                0, actual, 0, multiWordsLineCs.size());
-        System.arraycopy(multiWordsLineCs, 0, expected, 0, multiWordsLineCs.size());
+        acs = new AlphabetizedCircularShift(multiWordsLineCs);
+        actual.addAll(acs.getLines());
+        expected.addAll(multiWordsLineCs);
         Collections.sort(expected);
-        assertThat(actual,is(expected));
+        assertThat(actual, is(expected));
 
         // second line
-        System.arraycopy(AlphabetizedCircularShift.generateAlphabetizedCircularShift(singleWordLineCs),
-                0, actual, multiWordsLineCs.size(), singleWordLineCs.size());
-        System.arraycopy(singleWordLineCs, 0, expected, multiWordsLineCs.size(),
-                singleWordLineCs.size());
+        acs = new AlphabetizedCircularShift(singleWordLineCs);
+        actual.addAll(acs.getLines());
+        expected.addAll(singleWordLineCs);
         Collections.sort(expected);
-        assertThat(actual,is(expected));
+        assertThat(actual, is(expected));
     }
 
 
     @Test
     void testGenerateAlphabetizedCircularShiftPassEmptyLine() {
         // single-word line
-        List<String> actual = AlphabetizedCircularShift.generateAlphabetizedCircularShift(singleWordLineCs);
-        List<String> expected = singleWordLineCs;
+        acs = new AlphabetizedCircularShift(singleWordLineCs);
+        List<String> actual = new ArrayList<>(acs.getLines());
+        List<String> expected = new ArrayList<>(singleWordLineCs);
+        assertThat(actual, is(expected));
 
-        assertThat(actual,is(expected));
         // append empty line
-        actual = AlphabetizedCircularShift.generateAlphabetizedCircularShift(emptyLineCs);
-        assertThat(actual,is(expected));   // ACS should not change
+        acs = new AlphabetizedCircularShift(emptyLineCs);
+        actual.addAll(acs.getLines());
+        assertThat(actual, is(expected));   // ACS should not change
     }
-**/
+
 }
