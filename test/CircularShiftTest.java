@@ -30,5 +30,4 @@ class CircularShiftTest extends AbstractCircularShiftTest {
         assertArrayEquals(expected, actual);
     }
 
-
 }
