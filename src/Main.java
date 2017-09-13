@@ -8,13 +8,13 @@ public class Main {
     public static void main(String[] args) {
         List<String> shiftedLines = new ArrayList<>();
 
-        ICircularShift shifter = new CircularShift("I GOT THIS");
+        ICircularShift shifter = new CircularShift("HELLO WORLD");
         shiftedLines.addAll(shifter.getShiftedLines());
 
         System.out.println("circular shift");
         shifter.print();
 
-        shifter=new CircularShift("NOPE NOT THIS");
+        shifter=new CircularShift("CHOOSE A NUMBER");
         shiftedLines.addAll(shifter.getShiftedLines());
 
         System.out.println("circular shift");
