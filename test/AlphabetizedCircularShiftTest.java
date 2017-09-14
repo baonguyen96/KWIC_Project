@@ -69,7 +69,7 @@ class AlphabetizedCircularShiftTest extends AbstractCircularShiftTest {
 
         // second line
         acs = new AlphabetizedCircularShift(singleWordLineCs);
-        actual.addAll(acs.getLines());
+        actual = acs.getLines();
         expected.addAll(singleWordLineCs);
         Collections.sort(expected);
         assertThat(actual, is(expected));
@@ -87,6 +87,7 @@ class AlphabetizedCircularShiftTest extends AbstractCircularShiftTest {
         // append empty line
         acs = new AlphabetizedCircularShift(emptyLineCs);
         actual.addAll(acs.getLines());
+        expected.addAll(emptyLineCs);
         assertThat(actual, is(expected));   // ACS should not change
     }
 
