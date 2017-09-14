@@ -1,34 +1,47 @@
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import java.util.List;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 class CircularShiftTest extends AbstractCircularShiftTest {
 
-    @Test
-    private void testGenerateCircularShiftPassMultiWordsLine1() {
-        String[] actual = CircularShift.generateCircularShift(multiWordsLine1);
-        String[] expected = multiWordsLine1Cs;
+    private CircularShift cs;
 
-        assertArrayEquals(actual, expected);
+    @AfterEach
+    void teardown() {
+        cs = null;
+    }
+
+    @Test
+    void testGenerateCircularShiftPassMultiWordsLine() {
+        cs = new CircularShift(multiWordsLine);
+        List<String> actual = cs.getShiftedLines();
+        List<String> expected = multiWordsLineCs;
+
+        assertThat(actual, is(expected));
     }
 
 
     @Test
-    private void testGenerateCircularShiftPassSingleWordLine() {
-        String[] actual = CircularShift.generateCircularShift(singleWordLine);
-        String[] expected = singleWordLineCs;
+    void testGenerateCircularShiftPassSingleWordLine() {
+        cs = new CircularShift(singleWordLine);
+        List<String> actual = cs.getShiftedLines();
+        List<String> expected = singleWordLineCs;
 
-        assertArrayEquals(actual, expected);
+        assertThat(actual, is(expected));
     }
 
 
     @Test
-    private void testGenerateCircularShiftPassEmptyLine() {
-        String[] actual = CircularShift.generateCircularShift(emptyLine);
-        String[] expected = emptyLineCs;
+    void testGenerateCircularShiftPassEmptyLine() {
+        cs = new CircularShift(emptyLine);
+        List<String> actual = cs.getShiftedLines();
+        List<String> expected = emptyLineCs;
 
-        assertArrayEquals(actual, expected);
+        assertThat(actual, is(expected));
     }
-
 
 }

@@ -1,40 +1,94 @@
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.junit.Assert.assertThat;
 
 class AlphabetizedCircularShiftTest extends AbstractCircularShiftTest {
 
-    @Test
-    private void testGenerateAlphabetizedCircularShiftPassSingleLine() {
-        String[] actual = AlphabetizedCircularShift.generateAlphabetizedCircularShift(multiWordsLine1Cs);
-        String[] expected = multiWordsLine1Cs;
-        Arrays.sort(expected);
+    private AlphabetizedCircularShift acs;
 
-        assertArrayEquals(actual, expected);
+    @AfterEach
+    void teardown() {
+        AlphabetizedCircularShift.clear();
+        acs = null;
     }
 
 
     @Test
-    private void testGenerateAlphabetizedCircularShiftPassMultiLines() {
-        int length = multiWordsLine1Cs.length + singleWordLineCs.length;
-        String[] actual = new String[length];
-        String[] expected = new String[length];
+    void testGenerateAlphabetizedCircularShiftPassSingleLineMultiWords() {
+        acs = new AlphabetizedCircularShift(multiWordsLineCs);
+        List<String> actual = acs.getLines();
+        List<String> expected = multiWordsLineCs;
+        Collections.sort(expected);
+
+        assertThat(actual, is(expected));
+    }
+
+
+    @Test
+    void testGenerateAlphabetizedCircularShiftFailSingleLineMultiWords() {
+        List<String> expected = new ArrayList<>(multiWordsLineCs);   // unsorted
+        acs = new AlphabetizedCircularShift(multiWordsLineCs);
+        List<String> actual = acs.getLines();
+
+        for (String s : expected) {
+            System.out.println(s);
+        }
+
+        assertThat(actual, is(not(expected)));
+    }
+
+
+    @Test
+    void testGenerateAlphabetizedCircularShiftPassSingleLineSingleWords() {
+        acs = new AlphabetizedCircularShift(singleWordLineCs);
+        List<String> actual = acs.getLines();
+        List<String> expected = singleWordLineCs;
+
+        assertThat(actual, is(expected));
+    }
+
+
+    @Test
+    void testGenerateAlphabetizedCircularShiftPassMultiLines() {
+        List<String> actual = new ArrayList<>();
+        List<String> expected = new ArrayList<>();
 
         // first line
-        System.arraycopy(AlphabetizedCircularShift.generateAlphabetizedCircularShift(multiWordsLine1Cs),
-                0, actual, 0, multiWordsLine1Cs.length);
-        System.arraycopy(multiWordsLine1Cs, 0, expected, 0, multiWordsLine1Cs.length);
-        Arrays.sort(expected);
-        assertArrayEquals(actual, expected);
+        acs = new AlphabetizedCircularShift(multiWordsLineCs);
+        actual.addAll(acs.getLines());
+        expected.addAll(multiWordsLineCs);
+        Collections.sort(expected);
+        assertThat(actual, is(expected));
 
         // second line
-        System.arraycopy(AlphabetizedCircularShift.generateAlphabetizedCircularShift(singleWordLineCs),
-                0, actual, multiWordsLine1Cs.length, singleWordLineCs.length);
-        System.arraycopy(singleWordLineCs, 0, expected, multiWordsLine1Cs.length,
-                singleWordLineCs.length);
-        Arrays.sort(expected);
-        assertArrayEquals(actual, expected);
+        acs = new AlphabetizedCircularShift(singleWordLineCs);
+        actual = acs.getLines();
+        expected.addAll(singleWordLineCs);
+        Collections.sort(expected);
+        assertThat(actual, is(expected));
+    }
+
+
+    @Test
+    void testGenerateAlphabetizedCircularShiftPassEmptyLine() {
+        // single-word line
+        acs = new AlphabetizedCircularShift(singleWordLineCs);
+        List<String> actual = new ArrayList<>(acs.getLines());
+        List<String> expected = new ArrayList<>(singleWordLineCs);
+        assertThat(actual, is(expected));
+
+        // append empty line
+        acs = new AlphabetizedCircularShift(emptyLineCs);
+        actual = acs.getLines();
+        expected.addAll(emptyLineCs);
+        assertThat(actual, is(expected));   // ACS should not change
     }
 
 }

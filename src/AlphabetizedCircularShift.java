@@ -1,31 +1,27 @@
-import java.util.Collections;
 import java.util.List;
 
-public class AlphabetizedCircularShift implements IAlphabetizedCircularShift {
+public class AlphabetizedCircularShift {
 
     private static List<String> lines;
 
-    public AlphabetizedCircularShift(List<String> lines) {
-        AlphabetizedCircularShift.lines = generateAlphabetizedCircularShift(lines);
-    }
+    public static void generateAlphabetizedCircularShift(List<String> lines) {
+        // NOTE: lines != this.lines
+        // append lines to this.lines
 
-
-    private static List<String> generateAlphabetizedCircularShift(List<String> lines) {
-        Collections.sort(lines);
-        return lines;
+//        Collections.sort(lines);
+//        return lines;
     }
 
     public static void clear() {
         lines = null;
     }
 
-    @Override
-    public List<String> getLines() {
+
+    public static List<String> getLines() {
         return lines;
     }
 
-    @Override
-    public void print() {
+    public static void print() {
         for (String line : lines) {
             System.out.println(line);
         }

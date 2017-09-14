@@ -2,29 +2,20 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class CircularShift implements ICircularShift {
+public class CircularShift {
 
-    private List<String> lines;
+    private static List<String> lines;
 
-    public CircularShift(String line) {
-        this.lines = generateCircularShift(line);
-    }
-
-    public CircularShift() {
-        this.lines = new ArrayList<>();
-    }
-
-    private static List<String> generateCircularShift(String msg) {
-        List<String> result = new ArrayList<>();
+    public static void generateCircularShift(String msg) {
+        lines = new ArrayList<>();
 
         List<String> words = new ArrayList<>(Arrays.asList(msg.toUpperCase().split(" ")));
         int lastIndex = words.size() - 1;
-        result.add(msg);
+        lines.add(msg);
         for (int i = 0; i < lastIndex; ++i) {
             words.add(lastIndex, words.remove(0));
-            result.add(arrToString(words));
+            lines.add(arrToString(words));
         }
-        return result;
     }
 
     private static String arrToString(List<String> arr) {
@@ -37,16 +28,19 @@ public class CircularShift implements ICircularShift {
         return builder.toString();
     }
 
-    @Override
-    public List<String> getShiftedLines() {
+    public static List<String> getShiftedLines() {
         return lines;
     }
 
-    @Override
-    public void print() {
+
+    public static void print() {
         for (String line : lines) {
             System.out.println(line);
         }
+    }
+
+    public static void clear() {
+        lines = null;
     }
 
 }
